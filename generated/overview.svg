@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="195" viewBox="0 0 495 195">
+  <style>
+    .title { font: 600 18px 'Segoe UI', sans-serif; fill: #2d333b; }
+    .stat-label { font: 400 14px 'Segoe UI', sans-serif; fill: #636e7b; }
+    .stat-value { font: 700 14px 'Segoe UI', sans-serif; fill: #2d333b; }
+    .icon { fill: #4c9be8; }
+  </style>
+  <rect width="495" height="195" rx="6" fill="#ffffffcc" stroke="#e4e2e2" stroke-width="1"/>
+  <text x="25" y="35" class="title">Atchuth Kumar's GitHub Stats</text>
+  <text x="25" y="70"  class="stat-label">⭐ Total Stars Earned</text>
+  <text x="380" y="70"  class="stat-value" text-anchor="end">0</text>
+  <text x="25" y="95"  class="stat-label">📦 Total Commits</text>
+  <text x="380" y="95"  class="stat-value" text-anchor="end">19</text>
+  <text x="25" y="120" class="stat-label">🔀 Pull Requests</text>
+  <text x="380" y="120" class="stat-value" text-anchor="end">0</text>
+  <text x="25" y="145" class="stat-label">🐛 Issues Opened</text>
+  <text x="380" y="145" class="stat-value" text-anchor="end">0</text>
+  <text x="25" y="170" class="stat-label">📁 Repos Contributed To</text>
+  <text x="380" y="170" class="stat-value" text-anchor="end">9</text>
+</svg>
