@@ -1,69 +1,149 @@
-# Hey, I'm Atchuth Kumar 👋
+<div align="center">
 
-I build things end-to-end — from Django backends and REST APIs to AI agents that actually do useful work. I'm a fresher actively looking for **remote roles and freelance projects** in full-stack Python, AI/ML, and Generative AI.
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&duration=3000&pause=1000&color=3B82F6&center=true&vCenter=true&width=700&lines=Hey%2C+I'm+Atchuth+Kumar+%F0%9F%91%8B;Full+Stack+Python+Developer;GenAI+%26+Agentic+AI+Engineer;Building+things+that+actually+work)](https://git.io/typing-svg)
 
-I care about building software that ships, not just software that compiles.
+![Profile Views](https://komarev.com/ghpvc/?username=BUDIREDDYATCHUTHKUMAR&color=3b82f6&style=flat-square&label=Profile+Views)
+&nbsp;
+[![GitHub followers](https://img.shields.io/github/followers/BUDIREDDYATCHUTHKUMAR?label=Followers&style=flat-square&color=3b82f6)](https://github.com/BUDIREDDYATCHUTHKUMAR)
+&nbsp;
+![Open to Work](https://img.shields.io/badge/Open%20to%20Work-Remote%20%26%20Freelance-22c55e?style=flat-square)
+
+</div>
 
 ---
 
-## What I work with
+## About me
 
-**Backend & Full Stack**
-- Python · Django · Django REST Framework · PostgreSQL · SQLite
-- Authentication systems · RESTful APIs · Admin dashboards
+I build things end-to-end — Django backends, REST APIs, and AI agents that actually do useful work. Currently focused on **LLM-powered applications**, **agentic workflows**, and **RAG pipelines**.
+
+Fresher actively looking for remote roles and freelance projects. I move fast, read docs carefully, and don't stop until it works.
+
+- 📍 Chittoor, India — open to remote work globally
+- 🔭 Currently building: AI document Q&A agent with LangChain + FAISS
+- 🌱 Learning: FastAPI · LangGraph · production ML deployment
+- 💬 Ask me about: Python, Django, LangChain, building AI agents
+- 📫 Reach me: **budireddyatchuthkumar@gmail.com**
+
+---
+
+## Tech stack
+
+**Languages & Frameworks**
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![Django REST](https://img.shields.io/badge/Django_REST-ff1709?style=for-the-badge&logo=django&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
 **AI / ML / GenAI**
-- LLMs (OpenAI, Anthropic, Gemini APIs) · LangChain · RAG pipelines
-- Agentic workflows · Prompt engineering · Vector databases (FAISS, Chroma)
 
-**Frontend & Tools**
-- HTML · CSS · Bootstrap 5 · JavaScript · AJAX
-- Git · GitHub · VS Code · Postman · Linux
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+
+**Databases & Tools**
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![VS Code](https://img.shields.io/badge/VS_Code-0078D4?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
 ---
 
 ## Projects
 
-### 🏠 [UrbanHome](https://github.com/BUDIREDDYATCHUTHKUMAR/urbanhome) — Real Estate Marketplace
-Full-stack Django web app for buying, selling, and renting properties.  
-Built-in user messaging, favorites, property reviews, advanced search & filtering, and a multi-level location hierarchy.  
-`Django` `Python` `Bootstrap 5` `SQLite` `AJAX`
+### 🏠 UrbanHome — Real Estate Marketplace
+> Full-stack Django web app for buying, selling, and renting properties
 
-> 🔗 Live demo coming soon — currently deploying to Railway
+Built user authentication, property CRUD, messaging between buyers & sellers, favorites, reviews & ratings, and advanced multi-filter search. Structured as a multi-app Django project with Bootstrap 5 frontend.
 
----
+**Stack:** `Python` `Django` `Bootstrap 5` `SQLite` `AJAX` `JavaScript`
 
-## What I'm building now
-
-- An **AI-powered document Q&A agent** using RAG (Retrieval-Augmented Generation) with LangChain and FAISS — ask questions against your own PDFs
-- Exploring **multi-agent orchestration** with LangGraph for task automation workflows
+[![Repo](https://img.shields.io/badge/View_Repo-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/BUDIREDDYATCHUTHKUMAR/urbanhome)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Deploying_Soon-f59e0b?style=flat-square)](#)
 
 ---
 
-## A bit more about me
+### 🤖 AI Document Q&A Agent *(In Progress)*
+> Ask natural language questions against your own PDFs using RAG
 
-- 📍 Based in Visakhapatnam, India · Open to remote work globally
-- 🎯 Looking for: remote full-stack / AI/ML roles, freelance Python & Django projects
-- 📚 Currently learning: FastAPI, LangGraph, deploying ML models to production
-- ⚡ I move fast, read documentation carefully, and don't stop until it works
+RAG pipeline: PDF ingestion → chunking → FAISS vector store → LangChain QA chain → conversational interface.
 
----
+**Stack:** `Python` `LangChain` `FAISS` `OpenAI API` `FastAPI`
 
-## Reach me
-
-| | |
-|---|---|
-| 📧 Email | budireddyatchuthkumar@gmail.com |
-| 💼 LinkedIn | https://www.linkedin.com/in/atchuthkumar-budireddy-bb25922b7/ |
-| 🐙 GitHub | [@BUDIREDDYATCHUTHKUMAR](https://github.com/BUDIREDDYATCHUTHKUMAR) |
-
-**Open to work.** If you have a project or role that fits, just send a message — I respond fast.
+[![Repo](https://img.shields.io/badge/Building_Now-3b82f6?style=flat-square&logo=github&logoColor=white)](#)
 
 ---
 
-<details>
-<summary>GitHub stats</summary>
+## GitHub stats
 
-![Atchuth Kumar's GitHub stats](https://github-readme-stats.vercel.app/api?username=BUDIREDDYATCHUTHKUMAR&show_icons=true&hide_border=true&theme=default)
+<!--
+  STATS SETUP INSTRUCTIONS
+  ─────────────────────────────────────────────────────────────────────────────
+  These images are generated by your OWN GitHub Action (no external service).
+  
+  ONE-TIME SETUP (takes 5 minutes):
+  1. In this repo (BUDIREDDYATCHUTHKUMAR), go to Settings → Actions → General
+     → set "Workflow permissions" to "Read and write permissions" → Save
+  2. Go to github.com/settings/tokens → Generate new token (classic)
+     → No scopes needed → copy the token
+  3. In this repo → Settings → Secrets and variables → Actions → New secret
+     → Name: GH_TOKEN   Value: [paste your token] → Save
+  4. Create the file .github/workflows/stats.yml in this repo
+     (copy the YAML from the stats.yml file included alongside this README)
+  5. Go to Actions tab → run the workflow manually once
+  6. The images will appear at: ./generated/overview.svg and ./generated/languages.svg
+  ─────────────────────────────────────────────────────────────────────────────
+  After setup, uncomment the lines below and delete this comment block.
+-->
 
-</details>
+<!--
+<div align="center">
+<img src="./generated/overview.svg" />
+&nbsp;&nbsp;
+<img src="./generated/languages.svg" />
+</div>
+-->
+
+<!-- STREAK: use streak-stats.demolab.com (DenverCoder1's hosted version - more reliable than the original) -->
+<div align="center">
+
+[![GitHub Streak](https://streak-stats.demolab.com?user=BUDIREDDYATCHUTHKUMAR&theme=default&hide_border=true)](https://git.io/streak-stats)
+
+</div>
+
+---
+
+## Activity graph
+
+[![Atchuth's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=BUDIREDDYATCHUTHKUMAR&theme=minimal&hide_border=true&area=true)](https://github.com/BUDIREDDYATCHUTHKUMAR)
+
+---
+
+## Connect with me
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/Email-budireddyatchuthkumar%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:budireddyatchuthkumar@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/atchuthkumar-budireddy-bb25922b7/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/BUDIREDDYATCHUTHKUMAR)
+
+**Open to remote roles and freelance projects in Python, Django, AI/ML, and GenAI.**
+If you have something interesting, send an email — I respond fast.
+
+</div>
+
+---
+
+<div align="center">
+<sub>Last updated June 2026</sub>
+</div>
