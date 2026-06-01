@@ -1,33 +1,161 @@
-# Save this file as: .github/workflows/stats.yml
-# in your BUDIREDDYATCHUTHKUMAR profile repository
+# .github/workflows/stats.yml
+# Save this file at exactly that path in your BUDIREDDYATCHUTHKUMAR repo.
+# DELETE your old stats.yml and replace it with this one.
 
 name: Generate GitHub Stats
 
 on:
   schedule:
     - cron: "0 0 * * *"   # runs every day at midnight UTC
-  workflow_dispatch:        # lets you run it manually from the Actions tab
+  workflow_dispatch:        # lets you trigger it manually from the Actions tab
   push:
     branches: [main, master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+    permissions:
+      contents: write       # needed to commit the generated SVGs back to the repo
 
-      - uses: jstrieb/github-stats@master
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests python-dateutil
+
+      - name: Generate stats SVGs
         env:
           ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Move generated files
+          GITHUB_ACTOR: BUDIREDDYATCHUTHKUMAR
         run: |
           mkdir -p generated
-          mv generated/overview.svg generated/overview.svg 2>/dev/null || true
-          mv generated/languages.svg generated/languages.svg 2>/dev/null || true
+          python3 << 'PYTHON'
+          import requests, json, os
+          from datetime import datetime, timezone
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: stats-svgs
-          path: generated/
+          token = os.environ["ACCESS_TOKEN"]
+          username = os.environ["GITHUB_ACTOR"]
+          headers = {"Authorization": f"bearer {token}", "Content-Type": "application/json"}
+
+          # GraphQL query to get stats
+          query = """
+          query($login: String!) {
+            user(login: $login) {
+              name
+              repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
+                nodes {
+                  stargazerCount
+                  languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+                    edges { size node { name color } }
+                  }
+                }
+              }
+              contributionsCollection {
+                totalCommitContributions
+                totalPullRequestContributions
+                totalIssueContributions
+                totalRepositoriesWithContributedCommits
+              }
+              followers { totalCount }
+            }
+          }
+          """
+
+          r = requests.post(
+              "https://api.github.com/graphql",
+              headers=headers,
+              json={"query": query, "variables": {"login": username}}
+          )
+          data = r.json()["data"]["user"]
+
+          # Aggregate stats
+          total_stars = sum(n["stargazerCount"] for n in data["repositories"]["nodes"])
+          cc = data["contributionsCollection"]
+          commits = cc["totalCommitContributions"]
+          prs = cc["totalPullRequestContributions"]
+          issues = cc["totalIssueContributions"]
+          repos_contributed = cc["totalRepositoriesWithContributedCommits"]
+
+          # Aggregate languages
+          lang_sizes = {}
+          for repo in data["repositories"]["nodes"]:
+              for edge in repo["languages"]["edges"]:
+                  name = edge["node"]["name"]
+                  color = edge["node"]["color"] or "#8b8b8b"
+                  lang_sizes[name] = lang_sizes.get(name, {"size": 0, "color": color})
+                  lang_sizes[name]["size"] += edge["size"]
+
+          total_size = sum(v["size"] for v in lang_sizes.values()) or 1
+          langs = sorted(lang_sizes.items(), key=lambda x: x[1]["size"], reverse=True)[:6]
+
+          # --- overview.svg ---
+          overview_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="495" height="195" viewBox="0 0 495 195">
+            <style>
+              .title {{ font: 600 18px 'Segoe UI', sans-serif; fill: #2d333b; }}
+              .stat-label {{ font: 400 14px 'Segoe UI', sans-serif; fill: #636e7b; }}
+              .stat-value {{ font: 700 14px 'Segoe UI', sans-serif; fill: #2d333b; }}
+              .icon {{ fill: #4c9be8; }}
+            </style>
+            <rect width="495" height="195" rx="6" fill="#ffffffcc" stroke="#e4e2e2" stroke-width="1"/>
+            <text x="25" y="35" class="title">Atchuth Kumar's GitHub Stats</text>
+            <text x="25" y="70"  class="stat-label">⭐ Total Stars Earned</text>
+            <text x="380" y="70"  class="stat-value" text-anchor="end">{total_stars}</text>
+            <text x="25" y="95"  class="stat-label">📦 Total Commits</text>
+            <text x="380" y="95"  class="stat-value" text-anchor="end">{commits}</text>
+            <text x="25" y="120" class="stat-label">🔀 Pull Requests</text>
+            <text x="380" y="120" class="stat-value" text-anchor="end">{prs}</text>
+            <text x="25" y="145" class="stat-label">🐛 Issues Opened</text>
+            <text x="380" y="145" class="stat-value" text-anchor="end">{issues}</text>
+            <text x="25" y="170" class="stat-label">📁 Repos Contributed To</text>
+            <text x="380" y="170" class="stat-value" text-anchor="end">{repos_contributed}</text>
+          </svg>"""
+
+          with open("generated/overview.svg", "w") as f:
+              f.write(overview_svg)
+
+          # --- languages.svg ---
+          bar_items = ""
+          legend_items = ""
+          x_offset = 25
+          total_bar_width = 445
+
+          for i, (name, info) in enumerate(langs):
+              pct = info["size"] / total_size
+              bar_w = int(pct * total_bar_width)
+              rx_left = "6" if i == 0 else "0"
+              rx_right = "6" if i == len(langs) - 1 else "0"
+              bar_items += f'<rect x="{x_offset}" y="80" width="{bar_w}" height="10" fill="{info["color"]}" rx="{rx_left}"/>'
+              x_offset += bar_w
+
+              lx = 25 + (i % 3) * 160
+              ly = 115 + (i // 3) * 28
+              legend_items += f'<circle cx="{lx+6}" cy="{ly+6}" r="6" fill="{info["color"]}"/>'
+              legend_items += f'<text x="{lx+18}" y="{ly+12}" font-family="Segoe UI, sans-serif" font-size="12" fill="#636e7b">{name} {pct*100:.1f}%</text>'
+
+          languages_svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="495" height="195" viewBox="0 0 495 195">
+            <rect width="495" height="195" rx="6" fill="#ffffffcc" stroke="#e4e2e2" stroke-width="1"/>
+            <text x="25" y="35" font-family="Segoe UI, sans-serif" font-size="18" font-weight="600" fill="#2d333b">Top Languages</text>
+            <text x="25" y="62" font-family="Segoe UI, sans-serif" font-size="12" fill="#636e7b">Based on public repo code</text>
+            {bar_items}
+            {legend_items}
+          </svg>"""
+
+          with open("generated/languages.svg", "w") as f:
+              f.write(languages_svg)
+
+          print("Generated overview.svg and languages.svg successfully")
+          PYTHON
+
+      - name: Commit and push generated SVGs
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add generated/
+          git diff --staged --quiet || git commit -m "chore: update GitHub stats [skip ci]"
+          git push
