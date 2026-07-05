@@ -10,7 +10,7 @@
   <text x="25" y="70"  class="stat-label">⭐ Total Stars Earned</text>
   <text x="380" y="70"  class="stat-value" text-anchor="end">0</text>
   <text x="25" y="95"  class="stat-label">📦 Total Commits</text>
-  <text x="380" y="95"  class="stat-value" text-anchor="end">25</text>
+  <text x="380" y="95"  class="stat-value" text-anchor="end">27</text>
   <text x="25" y="120" class="stat-label">🔀 Pull Requests</text>
   <text x="380" y="120" class="stat-value" text-anchor="end">0</text>
   <text x="25" y="145" class="stat-label">🐛 Issues Opened</text>
